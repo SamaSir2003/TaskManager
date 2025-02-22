@@ -134,3 +134,5 @@ if os.environ.get("RENDER"):
     DEBUG = False  # Ensure this is False in production
     ALLOWED_HOSTS = ["your-app-name.onrender.com"]  # Replace with your Render app URL
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+CSRF_TRUSTED_ORIGINS = ["https://taskmanager-w441.onrender.com"]
