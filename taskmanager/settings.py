@@ -122,3 +122,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+if os.environ.get("RENDER"):
+    DEBUG = False  # Ensure this is False in production
+    ALLOWED_HOSTS = ["your-app-name.onrender.com"]  # Replace with your Render app URL
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
