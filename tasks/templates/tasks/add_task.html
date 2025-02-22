@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Task</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tasks/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Task</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label>Title:</label>
+            <input type="text" name="title" required>
+            <label>Description:</label>
+            <textarea name="description"></textarea>
+            <button type="submit">Add Task</button>
+        </form>
+    </div>
+</body>
+</html>

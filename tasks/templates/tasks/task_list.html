@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tasks/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Task Manager</h1>
+        <a href="{% url 'add_task' %}" style="background: #007bff;">Add New Task</a>
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    <span>{{ task.title }} - {% if task.completed %}✅ Completed {% else %}❌ Pending{% endif %}</span>
+                    <div>
+                        <a href="{% url 'complete_task' task.id %}">✔️ Complete</a>
+                        <a href="{% url 'delete_task' task.id %}">🗑 Delete</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
